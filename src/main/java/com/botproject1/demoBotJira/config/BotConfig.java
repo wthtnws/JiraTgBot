@@ -1,4 +1,4 @@
-package com.botpoject1.demoBotJira.config;
+package com.botproject1.demoBotJira.config;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,4 +20,7 @@ public class BotConfig {
 
     @Value("${bot.chat}")
     Long chatId;
+
+    @Value("${bot.groupChat}")
+    Long groupId;
 }
