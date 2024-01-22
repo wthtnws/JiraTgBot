@@ -1,6 +1,6 @@
-package com.botpoject1.demoBotJira.config;
+package com.botproject1.demoBotJira.config;
 
-import com.botpoject1.demoBotJira.service.TelegramBot;
+import com.botproject1.demoBotJira.service.TelegramBot;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;

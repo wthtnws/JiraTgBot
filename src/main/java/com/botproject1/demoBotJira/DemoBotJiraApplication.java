@@ -1,4 +1,4 @@
-package com.botpoject1.demoBotJira;
+package com.botproject1.demoBotJira;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
