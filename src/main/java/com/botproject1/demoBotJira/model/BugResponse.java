@@ -1,11 +1,12 @@
 package com.botproject1.demoBotJira.model;
 
 import com.google.gson.annotations.SerializedName;
+import lombok.Data;
 import lombok.Getter;
 
 import java.util.List;
 
-@Getter
+@Data
 public class BugResponse {
     private String startAt;
     private String maxResults;

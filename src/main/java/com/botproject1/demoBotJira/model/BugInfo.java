@@ -1,28 +1,24 @@
 package com.botproject1.demoBotJira.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
+import lombok.Setter;
 
+@Data
 public class BugInfo {
-    @Getter
     private String summary;
-    @Getter
     private String created;
-    @Getter
     private String updated;
-    private class Priority {
-        private String name;
-
-        public String getName() {
-            return name;
-        }
-    }
 
     private Priority priority;
+    private Status status;
 
     @Override
     public String toString() {
-        return "\nSummary: " + getSummary() +
-        "\nPriority: " + this.priority.getName() +
+        return "\nStatus: " + getStatus().getName() +
+        "\nSummary: " + getSummary() +
+        "\nPriority: " + getPriority().getName() +
         "\nCreated: " + getCreated() +
         "\nUpdated: " + getUpdated();
     }

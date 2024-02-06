@@ -23,9 +23,11 @@ import java.util.Arrays;
 @Component
 public class TelegramBot extends TelegramLongPollingBot {
     final BotConfig config;
+    final BugService bugService;
 
-    public TelegramBot(BotConfig botConfig){
+    public TelegramBot(BotConfig botConfig, BugService bugService){
         this.config=botConfig;
+        this.bugService = bugService;
     }
 
     @Override
@@ -78,10 +80,10 @@ public class TelegramBot extends TelegramLongPollingBot {
         String message = getOpenBugs();
         BugResponse bugInformation = new Gson().fromJson(message, BugResponse.class);
         sendMessage(config.getChatId(), "Current time: " + new java.util.Date() + bugInformation);
-        sendMessage(config.getGroupId(), "Current time: " + new java.util.Date() + bugInformation);
+        //sendMessage(config.getGroupId(), "Current time: " + new java.util.Date() + bugInformation);
     }
 
-    synchronized String getOpenBugs() throws URISyntaxException {
+    String getOpenBugs() throws URISyntaxException {
         final String uri = "https://pira.myhrlink.ru/rest/agile/1.0/epic/none/issue";
         final String maxResults = "maxResults=3";
         final String jql = "jql=project%20%3D%20HRL%20AND%20type%20%3D%20Bug%20AND%20(Sprint%20not%20in%20openSprints()%20OR%20Sprint%20is%20EMPTY)%20AND%20status%20not%20in%20(Done%2C%20Closed%2C%20%22In%20Progress%22%2C%20%22Under%20Review%22%2C%20%22Ready%20for%20Review%22%2C%20%22READY%20FOR%20TESTING%22%2C%20%22In%20Testing%22)%20ORDER%20BY%20updated%20DESC%2C%20%22%D0%9F%D1%80%D0%B8%D0%BE%D1%80%D0%B8%D1%82%D0%B5%D1%82%20%D0%91%D0%B0%D0%B3%D0%B0%22%20ASC";
