@@ -21,6 +21,6 @@ public class BotConfig {
     @Value("${bot.chat}")
     Long chatId;
 
-//    @Value("${bot.groupChat}")
-//    Long groupId;
+    @Value("${bot.groupChat}")
+    Long groupId;
 }

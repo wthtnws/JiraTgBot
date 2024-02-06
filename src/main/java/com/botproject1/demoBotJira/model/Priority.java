@@ -8,5 +8,6 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class Priority {
-    private String name;
+
+    private String value;
 }

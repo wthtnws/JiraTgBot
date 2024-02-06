@@ -7,7 +7,8 @@ import lombok.Setter;
 
 @Data
 public class Bug {
-    private String id;
+    @SerializedName("id")
+    private String bugId;
     private String self;
     private String key;
     @SerializedName("fields")
