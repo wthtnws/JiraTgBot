@@ -55,7 +55,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                     }
                     break;
                 default:
-                    sendMessage(chatId,"Sorry, command was not found");
+                    //sendMessage(chatId,"Sorry, command was not found");
             }
         }
     }
